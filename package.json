@@ -3,10 +3,16 @@
     "parsel-js": "^1.0.2"
   },
   "scripts": {
-    "test": "ava"
+    "test": "ava",
+    "build:frontend": "browserify frontend/app.js | uglifyjs > frontend/bundle.js",
+    "build:frontend:watch": "watchify frontend/app.js -o frontend/bundle.js -v"
   },
   "devDependencies": {
-    "ava": "^4.2.0"
+    "ava": "^4.2.0",
+    "browserify": "^17.0.0",
+    "lodash.debounce": "^4.0.8",
+    "uglify-js": "^3.16.0",
+    "watchify": "^4.0.0"
   },
   "name": "css-specificity",
   "version": "1.0.0",
