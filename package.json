@@ -5,11 +5,13 @@
   "scripts": {
     "test": "ava",
     "build:frontend": "browserify frontend/app.js | uglifyjs > frontend/bundle.js",
-    "build:frontend:watch": "watchify frontend/app.js -o frontend/bundle.js -v"
+    "build:frontend:watch": "watchify frontend/app.js -o frontend/bundle.js -v",
+    "deploy": "yarn build:frontend && gh-pages -d frontend"
   },
   "devDependencies": {
     "ava": "^4.2.0",
     "browserify": "^17.0.0",
+    "gh-pages": "^4.0.0",
     "lodash.debounce": "^4.0.8",
     "uglify-js": "^3.16.0",
     "watchify": "^4.0.0"
