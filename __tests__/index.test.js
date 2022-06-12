@@ -1,12 +1,16 @@
-import test from "ava";
+const test = require("ava");
+const { specificity } = require("../lib");
 
-import specificity from "../lib/index.js";
-
-test("should calculate selector specificity", (t) => {
+test("specificity: should calculate selector specificity", (t) => {
   t.deepEqual(
     specificity(
-      "a b c d e f#b#c#d [a] [b=x] [c=a] #a #b > y.foo.bar.baz.faz:hover > a.link::first-letter"
+      "[x=','], b, #example > [id=example] + a ~ .foo[class=x][data-k][id=x]:hover div#a#b#c span div.hello.bar:active:visited [data-x][data-y]::first-line, #a#b#c:not(.p .k, span#a#b.a, #hello)#d#e"
     ),
-    [[5, 9, 9]]
+    [
+      [0, 1, 0],
+      [0, 0, 1],
+      [4, 12, 5],
+      [7, 1, 1],
+    ]
   );
 });
