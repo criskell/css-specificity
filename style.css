@@ -33,6 +33,10 @@ ul {
 	border-bottom: 1px solid rgba(0,0,0,0.1);
 }
 
+.results {
+    padding: 0 20px;
+}
+
 .result {
     text-align: center;
     margin-top: 20px;
